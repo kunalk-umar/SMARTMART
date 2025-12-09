@@ -1,0 +1,132 @@
+/* GLOBAL SETTINGS */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body {
+    height: 100vh;
+    display: flex;
+    background: #f0f2f5;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+/* --- LEFT SIDE: VISUALS --- */
+.visual-side {
+    flex: 1;
+    /* High quality grocery background image */
+    background: linear-gradient(rgba(46, 204, 113, 0.8), rgba(39, 174, 96, 0.9)), 
+                url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 40px;
+    position: relative;
+}
+
+.visual-content { text-align: center; z-index: 2; animation: floatUp 1s ease-out; }
+.visual-content h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 10px; text-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.visual-content p { font-size: 1.2rem; opacity: 0.9; max-width: 400px; margin: 0 auto; }
+.floating-icon { font-size: 5rem; margin-bottom: 20px; color: #fff; }
+
+/* --- RIGHT SIDE: FORM --- */
+.form-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+h2 { font-size: 2rem; color: #333; margin-bottom: 30px; font-weight: 600; }
+h2 span { color: #2ecc71; }
+
+/* --- FLOATING INPUT ANIMATION --- */
+.input-group { position: relative; margin-bottom: 25px; }
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+    background: #f9f9f9;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    transition: 0.3s;
+}
+
+/* Focus Effects */
+.input-group input:focus { border-color: #2ecc71; background: #fff; box-shadow: 0 5px 15px rgba(46, 204, 113, 0.1); }
+.input-group input:focus + i { color: #2ecc71; }
+
+/* Floating Label Logic */
+.input-group label {
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.3s ease all;
+    background: transparent;
+}
+
+/* When input is focused or has text, move label up */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: #2ecc71;
+    background: white;
+    padding: 0 5px;
+    font-weight: 600;
+}
+
+/* --- BUTTONS & LINKS --- */
+.btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #2ecc71;
+    color: white;
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+.btn:hover { background: #27ae60; transform: translateY(-3px); }
+
+.toggle-box { text-align: center; margin-top: 20px; color: #666; }
+.toggle-link { color: #2ecc71; font-weight: bold; cursor: pointer; text-decoration: none; }
+.toggle-link:hover { text-decoration: underline; }
+.home-link { color: #aaa; text-decoration: none; font-size: 0.9rem; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .visual-side { display: none; } /* Hide image on mobile */
+}
+
+/* --- ANIMATIONS --- */
+@keyframes floatUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }

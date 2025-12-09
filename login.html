@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMart | Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="visual-side">
+        <div class="visual-content">
+            <i class="fa-solid fa-basket-shopping floating-icon"></i>
+            <h1>SmartMart</h1>
+            <p>Fresh groceries delivered to your doorstep in minutes. Join the revolution.</p>
+        </div>
+    </div>
+
+    <div class="form-side">
+        
+        <div class="form-container" id="login-form">
+            <h2>Welcome <span>Back!</span></h2>
+            <form action="auth_handler.php" method="POST">
+                <input type="hidden" name="action" value="login">
+                
+                <div class="input-group">
+                    <input type="email" name="email" id="login-email" placeholder=" " required>
+                    <i class="fa-solid fa-envelope"></i>
+                    <label for="login-email">Email Address</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" name="password" id="login-pass" placeholder=" " required>
+                    <i class="fa-solid fa-lock"></i>
+                    <label for="login-pass">Password</label>
+                </div>
+
+                <button type="submit" class="btn">Login Now</button>
+            </form>
+
+            <div class="toggle-box">
+                New to SmartMart? <span class="toggle-link" onclick="toggleAuth()">Create Account</span>
+                <br><br>
+                <a href="index.html" class="home-link">&larr; Back to Home</a>
+            </div>
+        </div>
+
+        <div class="form-container" id="register-form" style="display: none;">
+            <h2>Create <span>Account</span></h2>
+            <form action="auth_handler.php" method="POST">
+                <input type="hidden" name="action" value="register">
+                
+                <div class="input-group">
+                    <input type="text" name="username" id="reg-name" placeholder=" " required>
+                    <i class="fa-solid fa-user"></i>
+                    <label for="reg-name">Full Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" name="email" id="reg-email" placeholder=" " required>
+                    <i class="fa-solid fa-envelope"></i>
+                    <label for="reg-email">Email Address</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" name="password" id="reg-pass" placeholder=" " required>
+                    <i class="fa-solid fa-lock"></i>
+                    <label for="reg-pass">Create Password</label>
+                </div>
+
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+
+            <div class="toggle-box">
+                Already have an account? <span class="toggle-link" onclick="toggleAuth()">Login Here</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleAuth() {
+            const login = document.getElementById('login-form');
+            const register = document.getElementById('register-form');
+            
+            if (login.style.display === 'none') {
+                login.style.display = 'block';
+                login.style.animation = 'fadeIn 0.5s'; 
+                register.style.display = 'none';
+            } else {
+                login.style.display = 'none';
+                register.style.display = 'block';
+                register.style.animation = 'fadeIn 0.5s'; 
+            }
+        }
+    </script>
+
+</body>
+</html>
