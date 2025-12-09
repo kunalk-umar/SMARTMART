@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMart | Online Grocery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Smart<span>Mart</span> <i class="fa-solid fa-leaf"></i></div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for vegetables, fruits...">
+            <button onclick="filterProducts()"><i class="fa-solid fa-search"></i></button>
+        </div>
+        <div class="nav-icons">
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fa-solid fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+            <button class="login-btn" onclick="openLogin()">Login</button>
+        </div>
+    </nav>
+    
+
+    <header class="hero">
+        <h1>Fresh Groceries Delivered</h1>
+        <p>Farm fresh straight to your doorstep.</p>
+    </header>
+
+    <main class="container">
+        <h2>Our Products</h2>
+        <div class="product-grid" id="product-container">
+            </div>
+    </main>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button onclick="toggleCart()">X</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            </div>
+        <div class="cart-footer">
+        <h3>Total: ₹<span id="total-price">0.00</span></h3> <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+    <div id="payment-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Select Payment Method</h2>
+            <span class="close-btn" onclick="closePaymentModal()">&times;</span>
+        </div>
+        
+        <div class="payment-options">
+            <div class="option" onclick="selectPayment('Card')">
+                <input type="radio" name="payment" id="p-card" checked>
+                <label for="p-card">Credit/Debit Card</label>
+            </div>
+            <div class="option" onclick="selectPayment('UPI')">
+                <input type="radio" name="payment" id="p-upi">
+                <label for="p-upi">UPI / GPay</label>
+            </div>
+            <div class="option" onclick="selectPayment('Cash on Delivery')">
+                <input type="radio" name="payment" id="p-cod">
+                <label for="p-cod">Cash on Delivery</label>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <h3>Total: <span id="pay-amount">₹0.00</span></h3>
+            <button class="pay-btn" onclick="confirmPayment()">Pay Now</button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
